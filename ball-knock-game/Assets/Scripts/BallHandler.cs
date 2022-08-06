@@ -25,6 +25,11 @@ public class BallHandler : MonoBehaviour
             return;
         }
 
+        LaunchBall();
+    }
+
+    void LaunchBall()
+    {
         var touchScreenPos = Touchscreen.current.position.ReadValue();
         var touchPos = _mainCamera.ScreenToWorldPoint(touchScreenPos);
 
