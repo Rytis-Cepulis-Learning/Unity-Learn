@@ -640,8 +640,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentBallRigidBody: {fileID: 650440558}
-  _secondsDetachAfterLaunch: 0.5
-  _currentBallSpringJoint: {fileID: 0}
+  _secondsDetachAfterLaunch: 0.1
+  _currentBallSpringJoint: {fileID: 650440562}
 --- !u!1 &1233725411
 GameObject:
   m_ObjectHideFlags: 0
