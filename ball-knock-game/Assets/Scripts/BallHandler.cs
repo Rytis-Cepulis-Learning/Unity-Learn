@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,14 +18,14 @@ public class BallHandler : MonoBehaviour
     private SpringJoint2D _currentBallSpringJoint;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         SpawnBall();
         _mainCamera = Camera.main;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (_currentBallSpringJoint == null)
         {
@@ -54,13 +52,13 @@ public class BallHandler : MonoBehaviour
         _currentBallRigidBody.position = touchPos;
     }
 
-    void LaunchBall()
+    private void LaunchBall()
     {
         _currentBallRigidBody.isKinematic = false;
         Invoke(nameof(DetachBall), _secondsDetachAfterLaunch);
     }
 
-    void DetachBall()
+    private void DetachBall()
     {
         _currentBallSpringJoint.enabled = false;
         _currentBallSpringJoint = null;
@@ -69,7 +67,7 @@ public class BallHandler : MonoBehaviour
         Invoke(nameof(SpawnBall), _secondsRespawnDelay);
     }
 
-    void SpawnBall()
+    private void SpawnBall()
     {
         var newBall = Instantiate(_ballPrefab, _pivot.position, Quaternion.identity);
         _currentBallRigidBody = newBall.GetComponent<Rigidbody2D>();
