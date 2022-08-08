@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _power: 2
+  _gainSpeedPerSecond: 0.5
+  _steeringSpeed: 50
 --- !u!4 &97043567
 Transform:
   m_ObjectHideFlags: 0
@@ -339,8 +341,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.20458426, y: 0.47881463, z: -0.11580893, w: -0.84585476}
-  m_LocalPosition: {x: 52.809395, y: 38.768635, z: 8.597174}
+  m_LocalRotation: {x: -0.3160454, y: 0.5525723, z: -0.23807323, w: -0.7335532}
+  m_LocalPosition: {x: 289.16772, y: 258.54254, z: 119.96367}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
