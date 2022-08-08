@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class BallHandler : MonoBehaviour
 {
@@ -24,6 +25,16 @@ public class BallHandler : MonoBehaviour
         _mainCamera = Camera.main;
     }
 
+    private void OnEnable()
+    {
+        EnhancedTouchSupport.Enable();
+    }
+
+    private void OnDisable()
+    {
+        EnhancedTouchSupport.Disable();
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -32,7 +43,7 @@ public class BallHandler : MonoBehaviour
             return;
         }
 
-        if (!Touchscreen.current.primaryTouch.press.isPressed)
+        if (UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count == 0)
         {
             if (_isCurrentBallDragging)
             {
@@ -45,7 +56,7 @@ public class BallHandler : MonoBehaviour
 
         _isCurrentBallDragging = true;
 
-        var touchScreenPos = Touchscreen.current.position.ReadValue();
+        var touchScreenPos = GetTouchesSum();
         var touchPos = _mainCamera.ScreenToWorldPoint(touchScreenPos);
 
         _currentBallRigidBody.isKinematic = true;
@@ -73,5 +84,16 @@ public class BallHandler : MonoBehaviour
         _currentBallRigidBody = newBall.GetComponent<Rigidbody2D>();
         _currentBallSpringJoint = newBall.GetComponent<SpringJoint2D>();
         _currentBallSpringJoint.connectedBody = _pivot;
+    }
+
+    private Vector2 GetTouchesSum()
+    {
+        var result = new Vector2();
+        foreach (var touch in UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches)
+        {
+            result += touch.screenPosition;
+        }
+        result /= UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count;
+        return result;
     }
 }
