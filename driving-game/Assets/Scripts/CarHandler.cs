@@ -37,7 +37,7 @@ public class CarHandler : MonoBehaviour
 
     private void Rotate()
     {
-        transform.Rotate(_steeringSpeed * _steerValue * Time.deltaTime, 0f, 0f);
+        transform.Rotate(0f, _steeringSpeed * _steerValue * Time.deltaTime, 0f);
     }
 
     public void Steer(int value)
