@@ -755,7 +755,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2, y: 1}
+    m_SensorSize: {x: 1.9980732, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _secondsDetachAfterLaunch: 0.2
-  _secondsRespawnDelay: 0.001
+  _secondsRespawnDelay: 0.5
   _pivot: {fileID: 1233725416}
   _ballPrefab: {fileID: 5239873068202721943, guid: a5c8d63d79f48c34088439d2bd5d92d3, type: 3}
 --- !u!1 &1233725411
